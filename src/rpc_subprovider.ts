@@ -8,8 +8,8 @@ import JsonRpcError = require('json-rpc-error');
 import fetch, { Headers, Response } from 'node-fetch';
 import { Counter, Summary } from 'prom-client';
 
-const httpAgent = new http.Agent({ keepAlive: true });
-const httpsAgent = new https.Agent({ keepAlive: true });
+const httpAgent = new http.Agent({ keepAlive: true } as any);
+const httpsAgent = new https.Agent({ keepAlive: true } as any);
 const agent = (_parsedURL: any) => (_parsedURL.protocol === 'http:' ? httpAgent : httpsAgent);
 
 const ETH_RPC_RESPONSE_TIME = new Summary({
